@@ -21,4 +21,14 @@ class FoodsController < ApplicationController
       render 'new', notice: 'Something went wrong!'
     end
   end
+
+  private
+
+  def set_food
+    @food = Food.find(params[:id])
+  end
+
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :unit_price, :quantity, :user_id)
+  end
 end
