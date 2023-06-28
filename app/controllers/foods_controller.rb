@@ -12,4 +12,13 @@ class FoodsController < ApplicationController
   def new
     @food = Food.new
   end
+  def create
+    @food = current_user.foods.build(food_params)
+
+    if @food.save
+      redirect_to foods_path(@food, current_user), notice: 'Food successfully added!'
+    else
+      render 'new', notice: 'Something went wrong!'
+    end
+  end
 end
