@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_many :inventories, foreign_key: 'user_id', dependent: :destroy
   has_many :recipes, foreign_key: 'user_id', dependent: :destroy
   has_many :foods
   # Include default devise modules. Others available are:
@@ -8,6 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :foods, foreign_key: :user_id
-  has_many :inventories, foreign_key: :user_id
   has_many :recipes, foreign_key: :user_id
 end
