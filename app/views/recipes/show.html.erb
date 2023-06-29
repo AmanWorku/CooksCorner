@@ -18,9 +18,9 @@
          <%= link_to "Generate Shopping List", shopping_list_path, class: "recipe-action-btn " %>
       <% end %>
     
-      <% if @recipe.user == @current_user %>
-        <%= link_to "Add Ingredients", new_recipe_path(@recipe.id), class: "add_ingredients_link"%>
-      <% end %>
+     <a href= <%= "/recipes/#{@recipe.id}/recipe_foods/new" %>>
+  <button class="btn-bg-red-big ">Add Ingredient</button>
+</a>
     </div>
     
     <table id="recipe_table" class="recipe_table">
