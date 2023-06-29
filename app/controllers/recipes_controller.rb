@@ -59,7 +59,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  def public_recipe
+  def public_recipes
     @recipes = Recipe.where(public_recipe: true)
   end
 

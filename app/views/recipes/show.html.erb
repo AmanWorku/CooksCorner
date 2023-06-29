@@ -15,7 +15,7 @@
     <%= render partial: 'recipe2', locals: { recipe: @recipe } %>
     <div id="recipe_buttons" class="recipe_buttons">
       <% if user_signed_in? %>
-        <button type="" class="open_button">Generate Shopping List</button>
+         <%= link_to "Generate Shopping List", shopping_list_path, class: "recipe-action-btn " %>
       <% end %>
     
       <% if @recipe.user == @current_user %>
