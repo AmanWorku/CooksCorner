@@ -1,4 +1,3 @@
-# app/controllers/foods_controller.rb
 class FoodsController < ApplicationController
   before_action :authenticate_user!
 
@@ -28,14 +27,20 @@ class FoodsController < ApplicationController
     @food = current_user.foods.find(params[:id])
   end
 
+  def update
+    @food = current_user.foods.find(params[:id])
+
+    if @food.update(food_params)
+      redirect_to foods_path
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @food = current_user.foods.find(params[:id])
     @food.destroy
     redirect_to foods_path
-  end
-
-  def my_foods
-    @foods = current_user.foods.all
   end
 
   private
