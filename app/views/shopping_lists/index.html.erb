@@ -1,7 +1,7 @@
 
-<div class="max-width flex-center column shopping">
+<div class="form">
   <h2>Shopping List</h2>
-  <div class="row max-width detail">
+  <div>
     <p>
       Amount of food items to buy: <%= @shop_list.length %>
     </p>
@@ -27,9 +27,7 @@
     <% if @shop_list.length == 0 %>
       <tr>
         <td colspan="10">
-          <div class="flex-center column empty-list">
             <p>Empty list of elements</p>
-          </div>
         </td>
       </tr>
     <% end %>

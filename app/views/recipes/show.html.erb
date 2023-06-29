@@ -17,10 +17,11 @@
       <% if user_signed_in? %>
          <%= link_to "Generate Shopping List", shopping_list_path, class: "recipe-action-btn " %>
       <% end %>
-    
+    <% if @recipe.user == current_user %>
      <a href= <%= "/recipes/#{@recipe.id}/recipe_foods/new" %>>
   <button class="btn-bg-red-big ">Add Ingredient</button>
 </a>
+  <% end %>
     </div>
     
     <table id="recipe_table" class="recipe_table">

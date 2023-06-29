@@ -1,12 +1,13 @@
 
 
   <div class="foood-container">
-    <%= button_to "Add Food", new_food_path, method: :get, class:"add-food" %>
+    
  
         <p class="notice"><%= notice %></p>
 
         <div class="foods">
-        <table class="table">
+        <%= button_to "Add Food", new_food_path, method: :get, class:"add-food" %>
+        <table class="food-table">
             <tr>
             <th>Food</th>
             <th>Measurement unit</th>
