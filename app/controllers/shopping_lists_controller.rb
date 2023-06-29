@@ -1,7 +1,7 @@
 class ShoppingListsController < ApplicationController
-  before_action :authenticate_user!
-
   def index
-    @recipe_foods = current_user.recipe_foods.includes(:food)
+    @shop_list = RecipeFood.shopping_list(current_user)
+
+    @total_price = @shop_list.reduce(0) { |sum, el| sum + el.price }
   end
 end
