@@ -1,51 +1,46 @@
 class FoodsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :set_food, only: %i[show edit update destroy]
 
   def index
-    @foods = current_user.foods.all
+    @foods = current_user.foods
+  end
+
+  def show
+    @food = Food.find(params[:id])
   end
 
   def new
-    @food = current_user.foods.build
+    @food = Food.new
   end
 
   def create
     @food = current_user.foods.build(food_params)
 
     if @food.save
-      redirect_to foods_path
+      redirect_to foods_path(@food, current_user), notice: 'Food successfully added!'
     else
-      render :new
-    end
-  end
-
-  def show
-    @food = current_user.foods.find(params[:id])
-  end
-
-  def edit
-    @food = current_user.foods.find(params[:id])
-  end
-
-  def update
-    @food = current_user.foods.find(params[:id])
-
-    if @food.update(food_params)
-      redirect_to foods_path
-    else
-      render :edit
+      render 'new', notice: 'Something went wrong!'
     end
   end
 
   def destroy
-    @food = current_user.foods.find(params[:id])
+    @food = Food.find(params[:id])
     @food.destroy
-    redirect_to foods_path
+
+    if @food&.destroy
+      redirect_to foods_path, notice: 'Food successfully deleted!'
+    else
+      render 'new', notice: 'Something went wrong!'
+    end
   end
 
   private
 
+  def set_food
+    @food = Food.find(params[:id])
+  end
+
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
   end
 end
