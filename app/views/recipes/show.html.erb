@@ -15,12 +15,15 @@
     <%= render partial: 'recipe2', locals: { recipe: @recipe } %>
     <div id="recipe_buttons" class="recipe_buttons">
       <% if user_signed_in? %>
-        <button type="" class="open_button">Generate Shopping List</button>
+         <%= link_to "Generate Shopping List", shopping_list_path, class: "recipe-action-btn " %>
       <% end %>
-    
-      <% if @recipe.user == @current_user %>
-        <%= link_to "Add Ingredients", new_recipe_recipe_food_path(@recipe.id), class: "add_ingredients_link"%>
-      <% end %>
+    <% if @recipe.user == current_user %>
+     <a href= <%= "/recipes/#{@recipe.id}/recipe_foods/new" %>>
+  <button class="btn-bg-red-big ">Add Ingredient</button>
+</a>
+  <% end %>
+
+       
     </div>
     
     <table id="recipe_table" class="recipe_table">
@@ -35,25 +38,23 @@
         </tr>
       </thead>
       <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+      <tr>
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+          <td>$ <%= recipe_food.value %></td>
+          <td>
+          <% if @recipe.user == current_user %>
+          <div class="row btns">
+            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), class: "btn-text btn-modify" %>
+            <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), class: "no-styling btn-text color-red", method: :delete %>
+          </div>
+          <% end %>
+          </td>
+      </tr>
+    <% end %>
       </tbody>
     </table>
-
-</div>
-
-  <% if user_signed_in? %>
-    <div class="modal" id="modal">
- <%= form_with url: shopping_list_path, method: :get, local: true, html: { "data-turbo": "false", class: "modal-form" } do |form| %>
-    <div class="form-containers shopping-list">
-      <h1 class="form-header">Generating Shopping List</h1>
-      <div class="form-group">
-        <h3>Choose an inventory to use</h3>
-        <%= form.text_field :recipe_id, value: @recipe.id, class: "form-input", type: "hidden" %>
-      </div>
-      <%= form.submit "Submit", class: "form-submit" %>
-    </div>
-  <% end %>
-</div>
-  <% end %>
 </div> 
 
 <script>

@@ -2,10 +2,10 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, Recipe, public: true
+    user ||= User.new
 
-    return unless user.present?
+    can :read, :all
+    can :manage, Recipe, user_id: user.id
 
-    can :manage, Recipe, user:
   end
 end

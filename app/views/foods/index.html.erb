@@ -1,20 +1,22 @@
-<div class="food-container">
-<h1 class="">Foods</h1>
 
-<div id="foods">
-  <%= link_to "Add food", new_food_path, class: "add-food" %>
-  <table class="food-table">
-    <thead>
-      <tr>
-        <th>Food</th>
-        <th>Measurement</th>
-        <th>Unit Price</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-   <% @foods.each do |food| %>
-      <%= render food %>
-    <% end %>
-  </table>
-</div>
-</div>
+
+  <div class="foood-container">
+    
+ 
+        <p class="notice"><%= notice %></p>
+
+        <div class="foods">
+        <%= button_to "Add Food", new_food_path, method: :get, class:"add-food" %>
+        <table class="food-table">
+            <tr>
+            <th>Food</th>
+            <th>Measurement unit</th>
+            <th>Unit price</th>
+            <th>Actions</th>
+            </tr>
+            <% @foods.each do |food| %>
+            <%= render food %>
+            <% end %>
+        </table>
+        </div>
+ </div>
