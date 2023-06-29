@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   
   resources :recipes do
-    get :shopping_list, on: :collection
+    resources :recipe_foods. only: [:new, :create, :destroy, :show, :edit, :update] 
   end
 
   resources :foods, only: [:index, :show, :new, :create, :destroy]
