@@ -57,8 +57,8 @@ class RecipesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def public_recipes
 
+  def public_recipes
     @recipes = Recipe.where(public_recipe: true)
   end
 

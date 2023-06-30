@@ -6,6 +6,5 @@ class Ability
 
     can :read, :all
     can :manage, Recipe, user_id: user.id
-
   end
 end
