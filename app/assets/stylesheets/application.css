@@ -94,6 +94,7 @@ a {
 .recipe-det {
   color: white;
 }
+
 .recipe-desc {
   width: 80%;
   padding: 2% 0 2% 2%;
@@ -534,6 +535,7 @@ ul {
   margin-top: 20px;
   margin-inline: auto;
   font-size: 1.5em;
+  background-color: rgba(49, 49, 49, 0.646);
 }
 
 .food-table th,
