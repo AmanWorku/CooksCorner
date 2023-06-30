@@ -67,7 +67,6 @@ a {
 .usernames,
 .totalfood {
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
 }
 
@@ -83,16 +82,18 @@ a {
 
 .recipe-item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   width: 60%;
   padding: 1em 2em;
-  align-items: center;
-  justify-content: center;
   background-color: rgba(49, 49, 49, 0.646);
   border-radius: 8px;
   margin-inline: auto;
 }
 
+.recipe-det {
+  color: white;
+}
 .recipe-desc {
   width: 80%;
   padding: 2% 0 2% 2%;
@@ -102,13 +103,14 @@ a {
   width: auto;
 }
 
-.block1:hover {
-  opacity: 0.7;
-}
-
 .link {
   font-size: 4em;
   font-weight: bolder;
+}
+
+.link:hover {
+  opacity: 0.7;
+  transition: 0.2s ease;
 }
 
 .link a {
@@ -118,7 +120,7 @@ a {
 
 .usernames {
   font-size: 200%;
-  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
 }
 
 #my-recipes {
