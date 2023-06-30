@@ -26,7 +26,7 @@
   <br>
 
     
-    <table id="recipe_table" class="recipe_table">
+    <table id="recipe_table" class="food-table">
       <thead class="recipe_table_head">
         <tr class="recipe_table_row">
           <th class="recipe_table_header">Food</th>
@@ -46,8 +46,7 @@
           <td>
           <% if @recipe.user == current_user %>
           <div class="row btns">
-            <%= link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), class: "btn-text btn-modify" %>
-            <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), class: "no-styling btn-text color-red", method: :delete %>
+           <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), class: "delete-button delete-food", method: :delete %>
           </div>
           <% end %>
           </td>
@@ -56,22 +55,5 @@
       </tbody>
     </table>
 </div> 
-
-<script>
- const test = document.querySelector(".open_button")
-const modal = document.querySelector(".modal")
-document.addEventListener("DOMContentLoaded", () => {
-    test.addEventListener("click", (e) => {
-      e.preventDefault()
-      console.log("name")
-      if (modal.classList.contains("modal")) {
-        modal.classList.remove("modal")
-      } else {
-        modal.classList.add("modal")
-      }
-    })
-  })
-
-    </script>
   </body>
 </html>
