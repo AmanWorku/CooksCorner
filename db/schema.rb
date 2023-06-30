@@ -25,6 +25,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_050734) do
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
+  create_table "recipes", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "public_recipe"
+    t.string "name"
+    t.text "instructions"
+    t.integer "preparation_time"
+    t.integer "cooking_time"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email", default: "", null: false
@@ -43,6 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_050734) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "recipes", "users"
   add_foreign_key "foods", "users"
+  add_foreign_key "recipes", "users"
 end
