@@ -23,36 +23,25 @@
 }
 
 body {
-  background-color: gray;
+  background: url('https://www.healthdigest.com/img/gallery/when-you-only-eat-processed-food-this-is-what-happens-to-your-body/l-intro-1612451776.jpg') center center no-repeat fixed;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.648);
 }
 
 a {
-  color: black;
-}
-
-.modal {
-  display: none;
+  color: white;
 }
 
 .open-button {
   cursor: pointer;
-}
-
-#modal {
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-form {
-  width: 500px;
-  margin: auto;
 }
 
 .shopping-list {
@@ -75,11 +64,6 @@ a {
   gap: 40px;
 }
 
-.slow {
-  display: flex;
-  justify-content: space-between;
-}
-
 .usernames,
 .totalfood {
   color: white;
@@ -98,37 +82,38 @@ a {
 }
 
 .recipe-item {
-  display: grid;
-  place-items: center;
-  background-color: rgb(189, 189, 189);
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 1em 2em;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(49, 49, 49, 0.646);
   border-radius: 8px;
-  margin: 2%;
+  margin-inline: auto;
 }
 
 .recipe-desc {
-  width: 95%;
+  width: 80%;
   padding: 2% 0 2% 2%;
 }
 
 .block1 {
-  float: left;
-  width: 50%;
+  width: auto;
 }
 
-.block2 {
-  padding-left: 30%;
-  font-size: 200%;
-  font-weight: bold;
+.block1:hover {
+  opacity: 0.7;
 }
 
 .link {
-  font-size: 400%;
+  font-size: 4em;
   font-weight: bolder;
 }
 
 .link a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .usernames {
@@ -137,7 +122,7 @@ a {
 }
 
 #my-recipes {
-  background-color: gray;
+  color: white;
 }
 
 .recipe_title {
@@ -145,11 +130,17 @@ a {
   width: 80%;
 }
 
+.recipe-action-button {
+  text-decoration: none;
+  background-color: rgba(49, 49, 49, 0.646);
+  color: white;
+}
+
 .recipe_title a {
   font-size: 400%;
   font-weight: bolder;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .remove {
@@ -159,17 +150,33 @@ a {
 .remove a {
   font-size: 250%;
   font-weight: bold;
-  color: black;
+  color: white;
 }
 
 .recipe_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  background-color: rgb(189, 189, 189);
+  background-color: rgba(49, 49, 49, 0.646);
   border-radius: 8px;
   margin: 2%;
   padding: 2% 0 2% 10%;
+}
+
+.delete-button {
+  width: 200px;
+  border: none;
+  padding: 1em 2em;
+}
+
+.delete-button:hover {
+  background-color: #e74c3c;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.block1-edited:hover {
+  opacity: 1;
 }
 
 #recipes-header {
@@ -181,27 +188,35 @@ a {
 .recipe_description {
   font-size: 200%;
   font-weight: bold;
+  color: white;
 }
 
 #new-recipe-section {
-  background-color: gray;
+  background-color: rgba(49, 49, 49, 0.646);
 }
 
 .new-recipe {
   font-size: 200%;
-  color: black;
+  color: white;
   text-decoration: none;
   font-weight: bold;
   margin-left: 12%;
-  border: 2px solid black;
+  border: 2px solid white;
   border-radius: 10px;
-  padding: 10px 10px;
+  padding: 0.5em 1em;
+}
+
+.new-recipe:hover {
+  background-color: white;
+  color: black;
+  transition: 0.2s ease;
 }
 
 .new-recipe-header {
   text-align: center;
   font-size: 500%;
   font-weight: 900;
+  color: white;
 }
 
 #recipe_form {
@@ -213,10 +228,11 @@ a {
 }
 
 .form_group {
-  text-align: center;
   border-radius: 8px;
   margin: 1%;
   width: 50%;
+  color: white;
+  text-align: left;
 }
 
 .form_group textarea,
@@ -228,6 +244,10 @@ input {
   height: 50px;
   font-weight: bold;
   font-size: large;
+}
+
+.form_check_input {
+  width: 100px;
 }
 
 .form_check_input::before {
@@ -242,7 +262,7 @@ input {
 }
 
 .recipe_links a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -255,7 +275,7 @@ input {
 
 .recipe_title2 a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .recipe_description2 {
@@ -264,6 +284,7 @@ input {
   font-size: 200%;
   font-weight: bold;
   margin-bottom: 5%;
+  color: white;
 }
 
 ul {
@@ -272,17 +293,33 @@ ul {
   padding: 0;
 }
 
-#recipe_buttons {
+.recipe_buttons {
   display: flex;
   justify-content: space-between;
   margin: 20px 0 0 5%;
   padding-bottom: 1%;
-  border-bottom: solid 2px gray;
   width: 90%;
+  background-color: rgba(49, 49, 49, 0.646);
+}
+
+.save-button {
+  width: 200px;
+  font-weight: 900;
+}
+
+.save-button:hover {
+  background-color: #2ecc71;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.save-public {
+  display: flex;
+  gap: 30px;
 }
 
 .view_recipe {
-  background-color: gray;
+  background-color: rgba(49, 49, 49, 0.646);
   padding: 5% 2% 15% 2%;
 }
 
@@ -296,15 +333,67 @@ ul {
   padding: 1%;
 }
 
+.recipe-buttons2 {
+  display: flex;
+  justify-content: space-between;
+  margin-inline: 30px;
+}
+
+.recipe-buttons2 a {
+  text-decoration: none;
+  color: white;
+}
+
+.recipe-action-btn {
+  padding: 0.5em 1em;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+}
+
+.recipe-action-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.2s ease;
+}
+
+.new-ingredient {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background-color: rgba(49, 49, 49, 0.646);
+  padding: 2em 4em;
+  font-weight: bold;
+  color: white;
+  width: 50%;
+  margin-inline: auto;
+  border-radius: 8px;
+}
+
 .add_ingredients_link {
   margin-right: 2%;
   font-size: 200%;
   font-weight: bold;
   text-decoration: none;
-  color: black;
+  color: white;
   background-color: rgb(189, 189, 189);
   border-radius: 8px;
   padding: 1%;
+}
+
+.ingredint-form-item {
+  margin-top: 1em;
+  padding: 1em 1em;
+}
+
+.quantity-input {
+  width: 200px;
+  margin-top: 1em;
+}
+
+.save-button2 {
+  margin-top: 20px;
 }
 
 .hr-line {
@@ -349,7 +438,7 @@ ul {
 }
 
 .recipe_container2 {
-  background-color: rgb(189, 189, 189);
+  background-color: rgba(49, 49, 49, 0.646);
   border-radius: 8px;
   margin: 5%;
 }
@@ -360,9 +449,10 @@ ul {
 }
 
 .display {
-  background-color: rgb(189, 189, 189);
+  background-color: rgba(49, 49, 49, 0.646);
   border-radius: 8px;
-  margin: 5%;
+  margin-inline: auto;
+  width: 60%;
 }
 
 .nav-group {
@@ -389,10 +479,12 @@ ul {
   transition: all 1s;
   overflow: hidden;
   border-radius: 5px;
+  width: auto;
 }
 
 .btn:hover {
-  color: #61aec1;
+  color: black;
+  background-color: white;
 }
 
 .btn::before {
@@ -412,6 +504,11 @@ ul {
   width: 160%;
 }
 
+.foods {
+  width: 70%;
+  margin-inline: auto;
+}
+
 .food-container {
   padding: 20px;
 }
@@ -420,6 +517,7 @@ ul {
 .table td {
   padding: 10px;
   text-align: left;
+  color: white;
 }
 
 .striped-table td,
@@ -429,9 +527,11 @@ ul {
 }
 
 .food-table {
-  width: 60%;
+  width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  margin-inline: auto;
+  font-size: 1.5em;
 }
 
 .food-table th,
@@ -445,13 +545,21 @@ ul {
   background-color: #f2f2f2;
 }
 
+.food-table td {
+  color: white;
+}
+
 .food-table td:last-child {
   text-align: center;
 }
 
 .add-food {
-  display: block;
-  margin-bottom: 20px;
+  border: none;
+  padding: 0.5em 1em;
+}
+
+.delete-food {
+  margin-left: -100px;
 }
 
 .form-container {
@@ -887,11 +995,11 @@ h2 {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   height: 26px;
@@ -899,8 +1007,8 @@ h2 {
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   border-radius: 50px;
 }
 
@@ -912,7 +1020,7 @@ input:focus + .slider {
   box-shadow: 0 0 1px #21f34f;
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);

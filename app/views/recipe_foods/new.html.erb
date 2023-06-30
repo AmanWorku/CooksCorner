@@ -1,11 +1,11 @@
-
+<div class="new-ingredient">
 <div class="row btn-back">
   <%= link_to "Back", "/recipes/#{@recipe.id}" %>
 </div>
 
 <div class="add-form-margin">
 
-  <h1>Add Ingrediants</h1>
+  <h1>Add Ingredients</h1>
 
   <%= form_with(model: @recipe_food, url: "/recipes/#{@recipe.id}/recipe_foods/")  do |form| %>
     <% if @recipe_food.errors.any? %>
@@ -20,21 +20,17 @@
       </div>
     <% end %>
 
-    <div>
-    <%= form.label :name, "Select a food:" %><br/>
+    <div class="ingredient-form"> 
+    <%= form.label :name, "Select a food:", class: "ingredint-form-item" %>
     <%= form.select :id, 
       options_for_select(@foods.map { |f| [f.name, f.id] }), 
-      {}, { class: "input-default" } %>
-    </div>
-
-    <div>
-      <%= form.label :quantity, placeholder: "10 'kg'..", style: "display: block" %>
-      <%= form.number_field :quantity, class: "input-default" %>
-    </div>
-
-
-    <div>
-      <%= form.submit class: "btn-bg-red-big" %>
+      {}, { class: "ingredint-form-item" } %><br>
+      <%= form.label :quantity, placeholder: "10 'kg'..",class: "ingredint-form-item" %>
+      <%= form.number_field :quantity, class: "quantity-input" %>
+      <br>
+  
+      <%= form.submit class: "save-button save-button2" %>
     </div>
   <% end %>
+</div>
 </div>
