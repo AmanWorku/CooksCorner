@@ -4,19 +4,14 @@
   <% else %>
     <% @recipes.each do |recipe| %>
       <div class="recipe-item">
-        <div class="recipe-desc slow">
-          <div class="foodownercombo">
-          <div class="block1">
-          <h4 class="link"><%= link_to recipe.title, recipe_path(recipe) %></h4>
-          <p class="usernames">By: <%= recipe.user.email %></p>
-          </div>
-          </div>
-        <div class="block2">
-          </div> 
-        </div>
-        <div class="recipe-title-delete">
-          <h4 class="link"></h4>
-        </div>
+            <div class="block1">
+              <h4 class="link"><%= link_to recipe.title, recipe_path(recipe) %></h4>
+              <p class="usernames">By: <%= recipe.user.email %></p>
+            </div>
+            <div>
+              <h4  class="recipe-det">Total food: <span><%= recipe.recipe_foods.length %></span></h4>
+              <h4  class="recipe-det">Total price: <span>$<%= RecipeFood.total_price(recipe.recipe_foods) %></span></h4>
+            </div>
       </div>
     <% end %>
   <% end %>
