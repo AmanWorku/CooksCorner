@@ -13,17 +13,17 @@
     <section class="view_recipe">
     <div class="display">
     <%= render partial: 'recipe2', locals: { recipe: @recipe } %>
-    <div class="recipe-buttons2">
-      <% if user_signed_in? %>
-         <%= link_to "Generate Shopping List", shopping_list_path, class: "recipe-action-btn" %>
-      <% end %>
-    <% if @recipe.user == current_user %>
-     <a href= <%= "/recipes/#{@recipe.id}/recipe_foods/new" %> class="recipe-action-btn">
- Add Ingredient
-  </a>
-</div>
-</a>
-  <% end %>
+        <div class="recipe-buttons2">
+          <% if user_signed_in? %>
+            <%= link_to "Generate Shopping List", shopping_list_path, class: "recipe-action-btn" %>
+          <% end %>
+        <% if @recipe.user == current_user %>
+        <a href= <%= "/recipes/#{@recipe.id}/recipe_foods/new" %> class="recipe-action-btn">
+    Add Ingredient
+      </a>
+       <% end %>
+    </div>
+  <br>
 
     
     <table id="recipe_table" class="recipe_table">
