@@ -636,62 +636,6 @@ ul {
   margin-bottom: 20px;
 }
 
-.inventories-container {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.add-inventory-link {
-  display: block;
-  margin-bottom: 20px;
-  background-color: #333;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.add-inventory-link:hover {
-  background-color: #555;
-}
-
-.inventories-list {
-  margin-top: 20px;
-}
-
-.inventory-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.inventory-action-link {
-  color: #333;
-  text-decoration: underline;
-  font-size: 14px;
-}
-
-.inventory-action-button {
-  background-color: #f00;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.inventory-action-button:hover {
-  background-color: #c00;
-}
-
 .form-title {
   font-size: 24px;
   margin-top: 0;
@@ -718,26 +662,6 @@ ul {
 
 .form-submit:hover {
   background-color: #555;
-}
-
-.inventory-table {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.inventory-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.inventory-title {
-  font-size: 24px;
 }
 
 .add-food-button {
@@ -794,11 +718,6 @@ ul {
   border-radius: 5px;
   font-size: 16px;
   color: #333;
-}
-
-.inventory-food {
-  width: 50%;
-  margin: 0 auto;
 }
 
 .page-container {
