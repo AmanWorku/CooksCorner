@@ -12,35 +12,28 @@
   <% end %>
 
   <div class="form_group">
-    <%= form.label :title, style: "display: block", class: "form_label" %>
+    <%= form.label :title, style: "display: block", class: "form_labels" %>
     <%= form.text_field :title, id: "recipe_title", class: "form_control" %>
   </div>
 
   <div class="form_group">
-    <%= form.label :description, style: "display: block", class: "form_label" %>
+    <%= form.label :description, style: "display: block", class: "form_labels" %>
     <%= form.text_area :description, id: "recipe_description", class: "form_control" %>
   </div>
 
   <div class="form_group">
-    <%= form.label :preparation_time, style: "display: block", class: "form_label" %>
+    <%= form.label :preparation_time, style: "display: block", class: "form_labels" %>
     <%= form.number_field :preparation_time, id: "recipe_preparation_time", class: "form_control" %>
   </div>
 
   <div class="form_group">
-    <%= form.label :cooking_time, style: "display: block", class: "form_label" %>
+    <%= form.label :cooking_time, style: "display: block", class: "form_labels" %>
     <%= form.number_field :cooking_time, id: "recipe_cooking_time", class: "form_control" %>
   </div>
 
   <div class="form_group">
-    <%= form.label :user_id, style: "display: block", class: "form_label" %>
+    <%= form.label :user_id, style: "display: block", class: "form_labels" %>
     <%= form.text_field :user_id, value: current_user.id, readonly: true, id: "recipe_user_id", class: "form_control" %>
-  </div>
-
-  <div class="form_group">
-    <%= form.label :public_recipe, style: "display: block", class: "form_label" do %>
-      Public recipe:
-      <%= form.check_box :public_recipe, id: "recipe_public_recipe", class: "form_check_input" %>
-    <% end %>
   </div>
 
   <div class="form_group">
