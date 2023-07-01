@@ -1,0 +1,19 @@
+
+
+  <div class="foood-container">
+
+        <div class="foods">
+        <%= button_to "Add Food", new_food_path, method: :get, class:"save-button add-food" %>
+        <table class="food-table">
+            <tr>
+            <th>Food</th>
+            <th>Measurement unit</th>
+            <th>Unit price</th>
+            <th>Actions</th>
+            </tr>
+            <% @foods.each do |food| %>
+            <%= render food %>
+            <% end %>
+        </table>
+        </div>
+ </div>

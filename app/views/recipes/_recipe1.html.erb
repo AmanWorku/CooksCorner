@@ -1,0 +1,12 @@
+<div id="<%= dom_id recipe %>" class="recipe_container">
+  <div class="block1 block1-edited">
+    <h4 class="recipe_title">
+      <%= link_to recipe.title, recipe %>
+    </h4>
+    <p><%= button_to "Delete recipe", recipe_path(recipe), class: "remove", method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" }, class: "delete-button" %></p>
+  </div>
+    <p class="recipe_description">
+      <%= recipe.description %>
+    </p>
+
+</div>

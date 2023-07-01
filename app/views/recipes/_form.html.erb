@@ -1,0 +1,42 @@
+<%= form_with(model: recipe, id: "recipe_form") do |form| %>
+  <% if recipe.errors.any? %>
+    <div id="recipe_errors" class="error_message">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form_group">
+    <%= form.label :title, style: "display: block", class: "form_labels" %>
+    <%= form.text_field :title, id: "recipe_title", class: "form_control" %>
+  </div>
+
+  <div class="form_group">
+    <%= form.label :description, style: "display: block", class: "form_labels" %>
+    <%= form.text_area :description, id: "recipe_description", class: "form_control" %>
+  </div>
+
+  <div class="form_group">
+    <%= form.label :preparation_time, style: "display: block", class: "form_labels" %>
+    <%= form.number_field :preparation_time, id: "recipe_preparation_time", class: "form_control" %>
+  </div>
+
+  <div class="form_group">
+    <%= form.label :cooking_time, style: "display: block", class: "form_labels" %>
+    <%= form.number_field :cooking_time, id: "recipe_cooking_time", class: "form_control" %>
+  </div>
+
+  <div class="form_group">
+    <%= form.label :user_id, style: "display: block", class: "form_labels" %>
+    <%= form.text_field :user_id, value: current_user.id, readonly: true, id: "recipe_user_id", class: "form_control" %>
+  </div>
+
+  <div class="form_group">
+    <%= form.submit "Save Recipe", class: "btn btn_primary" %>
+  </div>
+<% end %>

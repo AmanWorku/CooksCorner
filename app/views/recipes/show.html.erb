@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Public Recipes</title>
+    <%= csrf_meta_tags %>
+    <%= action_cable_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+    <p class="notice" style="color: green"><%= notice %></p>
+    <section class="view_recipe">
+    <div class="display">
+    <%= render partial: 'recipe2', locals: { recipe: @recipe } %>
+        <div class="recipe-buttons2">
+          <% if user_signed_in? %>
+            <%= link_to "Generate Shopping List", shopping_list_path, class: "recipe-action-btn" %>
+          <% end %>
+        <% if @recipe.user == current_user %>
+        <a href= <%= "/recipes/#{@recipe.id}/recipe_foods/new" %> class="recipe-action-btn">
+    Add Ingredient
+      </a>
+       <% end %>
+    </div>
+  <br>
+
+    
+    <table id="recipe_table" class="food-table">
+      <thead class="recipe_table_head">
+        <tr class="recipe_table_row">
+          <th class="recipe_table_header">Food</th>
+          <th class="recipe_table_header">Quantity</th>
+          <th class="recipe_table_header">Value</th>
+          <% if @recipe.user == current_user %>
+            <th class="recipe_table_header">Action</th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+      <tr>
+          <td><%= recipe_food.food.name %></td>
+          <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+          <td>$ <%= recipe_food.value %></td>
+          <td>
+          <% if @recipe.user == current_user %>
+          <div class="row btns">
+           <%= button_to "Remove", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), class: "delete-button delete-food", method: :delete %>
+          </div>
+          <% end %>
+          </td>
+      </tr>
+    <% end %>
+      </tbody>
+    </table>
+</div> 
+  </body>
+</html>

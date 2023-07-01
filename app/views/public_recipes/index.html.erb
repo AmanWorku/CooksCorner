@@ -1,0 +1,18 @@
+<section class="recipes public">
+  <% if @recipes.empty? %>
+    <p class="empty-recipes">No public recipes.</p>
+  <% else %>
+    <% @recipes.each do |recipe| %>
+      <div class="recipe-item">
+            <div class="block1">
+              <h4 class="link"><%= link_to recipe.title, recipe_path(recipe) %></h4>
+              <p class="usernames">By: <%= recipe.user.name %></p>
+            </div>
+            <div>
+              <h4  class="recipe-det">Total food: <span><%= recipe.recipe_foods.length %></span></h4>
+              <h4  class="recipe-det">Total price: <span>$<%= RecipeFood.total_price(recipe.recipe_foods) %></span></h4>
+            </div>
+      </div>
+    <% end %>
+  <% end %>
+</section>
