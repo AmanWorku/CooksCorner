@@ -901,18 +901,6 @@ h2 {
   display: none;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
 .slider::before {
   position: absolute;
   content: "";
@@ -924,6 +912,18 @@ h2 {
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -961,18 +961,7 @@ input:checked + .slider::before {
   display: none;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-}
-
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   height: 16px;
@@ -987,6 +976,6 @@ input[type="checkbox"]:checked + .slider {
   background-color: #2196f3;
 }
 
-input[type="checkbox"]:checked + .slider:before {
+input[type="checkbox"]:checked + .slider::before {
   transform: translateX(20px);
 }
