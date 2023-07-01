@@ -8,9 +8,10 @@ RSpec.describe ShoppingListsController, type: :controller do
     allow(controller).to receive(:current_user).and_return(user)
   end
 
-  describe "GET #index" do
-    it "returns a success response and assigns the shopping list and total price" do
-      shopping_list = [double("RecipeFood", price: 10), double("RecipeFood", price: 15), double("RecipeFood", price: 20)]
+  describe 'GET #index' do
+    it 'returns a success response and assigns the shopping list and total price' do
+      shopping_list = [double('RecipeFood', price: 10), double('RecipeFood', price: 15),
+                       double('RecipeFood', price: 20)]
 
       allow(RecipeFood).to receive(:shopping_list).with(user).and_return(shopping_list)
 
