@@ -6,7 +6,7 @@
       <div class="recipe-item">
             <div class="block1">
               <h4 class="link"><%= link_to recipe.title, recipe_path(recipe) %></h4>
-              <p class="usernames">By: <%= recipe.user.email %></p>
+              <p class="usernames">By: <%= recipe.user.name %></p>
             </div>
             <div>
               <h4  class="recipe-det">Total food: <span><%= recipe.recipe_foods.length %></span></h4>

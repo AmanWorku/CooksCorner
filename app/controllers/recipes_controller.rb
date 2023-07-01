@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
     @recipe.public_recipe = params[:recipe][:public_recipe] == '1'
 
     if @recipe.save
-      redirect_to @recipe, notice: 'Recipe was successfully created.'
+      redirect_to @recipe
     else
       render :new
     end
@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to recipe_url(@recipe) }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -71,6 +71,6 @@ class RecipesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :user_id, :public_recipe)
-  end
+    params.require(:recipe).permit(:title, :description, :preparation_time, :cooking_time, :user_id, :public_recipe)
+  end  
 end

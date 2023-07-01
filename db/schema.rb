@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_123225) do
     t.text "instructions"
     t.integer "preparation_time"
     t.integer "cooking_time"
+    t.boolean "public"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

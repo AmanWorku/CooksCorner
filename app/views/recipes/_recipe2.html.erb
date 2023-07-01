@@ -6,16 +6,21 @@
 
   </div>
     <p class="recipe_description2">
-      Description: <%= recipe.description %>
+      <br>Preparation Time: <%= recipe.preparation_time %> minutes</br>
+      <br>Cooking Time: <%= recipe.cooking_time %> minutes</br>
+      <br>Description: <%= recipe.description %></br>
     </p>
-    <%= form_with(model: recipe, id: "recipe_form") do |form| %>
+    <%= form_with(model: recipe, id: "recipe_form", remote: true) do |form| %>
       <div class="form_group save-public">
-        <%= form.label :public_recipe, style: "display: block", class: "form_label" do %>
-          Public recipe:
-          <%= form.check_box :public_recipe, id: "recipe_public_recipe", class: "form_check_input" %>
-        <% end %>
-        <%= form.submit "Save", class: "save-button" %>
-      </div>
+      <div class="form_group save-public">
+      <%= form.label :public_recipe, style: "display: block", class: "form_label" do %>
+        Public 
+        <div class="toggle-switch">
+          <%= form.check_box :public_recipe, id: "recipe_public_recipe", class: "form_check_input", onchange: "this.form.submit()" %>
+          <span class="slider round"></span>
+        </div>
+      <% end %>
+    </div>
       
     <% end %>
 

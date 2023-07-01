@@ -22,6 +22,16 @@
   </div>
 
   <div class="form_group">
+    <%= form.label :preparation_time, style: "display: block", class: "form_label" %>
+    <%= form.number_field :preparation_time, id: "recipe_preparation_time", class: "form_control" %>
+  </div>
+
+  <div class="form_group">
+    <%= form.label :cooking_time, style: "display: block", class: "form_label" %>
+    <%= form.number_field :cooking_time, id: "recipe_cooking_time", class: "form_control" %>
+  </div>
+
+  <div class="form_group">
     <%= form.label :user_id, style: "display: block", class: "form_label" %>
     <%= form.text_field :user_id, value: current_user.id, readonly: true, id: "recipe_user_id", class: "form_control" %>
   </div>
